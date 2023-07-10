@@ -5,6 +5,8 @@ import BestSeller from "../components/BestSeller/BestSeller";
 import Category from "../components/Category/Category";
 import ImageCarousal from "../components/ImageCarousal/ImageCarousal";
 import ShopByStore from "../components/ShopByStore.js/ShopByStore";
+import Feature from "../components/Feature/Feature";
+import Brand from "../components/Brand/Brand";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -14,6 +16,8 @@ export default function HomeScreen({ navigation }) {
       <Category />
       <ImageCarousal />
       <ShopByStore />
+      <Feature />
+      <Brand />
     </ScrollView>
   );
 }
