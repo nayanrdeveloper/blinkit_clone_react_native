@@ -1,10 +1,11 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import { useGetCategoriesQuery } from "../../api/categoryApi";
 
 export default function Category() {
   const { data: categories, isLoading } = useGetCategoriesQuery();
-  console.log(categories);
+  const navigation = useNavigation();
   return (
     <View className="space-y-2">
       <Text className="text-xl font-semibold">Shop by category</Text>
@@ -12,9 +13,16 @@ export default function Category() {
         {categories &&
           categories.map((category) => {
             return (
-              <View key={category._id}>
+              <TouchableOpacity
+                key={category._id}
+                onPress={() => {
+                  navigation.navigate("SubCategoryProductScreen", {
+                    categoryId: category._id,
+                  });
+                }}
+              >
                 <Image source={{ uri: category.image }} className="w-20 h-32" />
-              </View>
+              </TouchableOpacity>
             );
           })}
       </View>

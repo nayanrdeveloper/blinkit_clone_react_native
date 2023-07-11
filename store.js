@@ -3,6 +3,8 @@ import { sellerApi } from "./src/api/bestSellerApi";
 import { brandApi } from "./src/api/brandApi";
 import { categoryApi } from "./src/api/categoryApi";
 import { featureApi } from "./src/api/featureApi";
+import { productApi } from "./src/api/productApi";
+import { subCategoryApi } from "./src/api/subCategoryApi";
 
 const store = configureStore({
   reducer: {
@@ -10,13 +12,17 @@ const store = configureStore({
     [categoryApi.reducerPath]: categoryApi.reducer,
     [featureApi.reducerPath]: featureApi.reducer,
     [brandApi.reducerPath]: brandApi.reducer,
+    [subCategoryApi.reducerPath]: subCategoryApi.reducer,
+    [productApi.reducerPath]: productApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
       sellerApi.middleware,
       categoryApi.middleware,
       featureApi.middleware,
-      brandApi.middleware
+      brandApi.middleware,
+      subCategoryApi.middleware,
+      productApi.middleware
     ),
 });
 

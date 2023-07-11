@@ -7,6 +7,7 @@ import ImageCarousal from "../components/ImageCarousal/ImageCarousal";
 import ShopByStore from "../components/ShopByStore.js/ShopByStore";
 import Feature from "../components/Feature/Feature";
 import Brand from "../components/Brand/Brand";
+import BrandFocus from "../components/BrandInFocus/BrandFocus";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -18,6 +19,7 @@ export default function HomeScreen({ navigation }) {
       <ShopByStore />
       <Feature />
       <Brand />
+      <BrandFocus />
     </ScrollView>
   );
 }
