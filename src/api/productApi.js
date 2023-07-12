@@ -12,6 +12,9 @@ export const productApi = createApi({
     getProductBySubCategory: builder.query({
       query: (subCategoryId) => `/products/subcategory/${subCategoryId}`,
     }),
+    getProductByCategory: builder.query({
+      query: (categoryId) => `/products/category/${categoryId}`,
+    }),
     getProductByBrand: builder.query({
       query: (brandId) => `/products/brand/${brandId}`,
     }),
@@ -22,4 +25,5 @@ export const {
   useGetProductsQuery,
   useGetProductBySubCategoryQuery,
   useGetProductByBrandQuery,
+  useGetProductByCategoryQuery,
 } = productApi;

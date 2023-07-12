@@ -1,12 +1,10 @@
 import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { useGetProductByBrandQuery } from "../api/productApi";
 import LargeProductCard from "../components/Product/LargeProductCard";
 
-export default function ProductByBrand({ route }) {
-  const { brandId, brandName } = route.params;
-  const { data: products, isLoading } = useGetProductByBrandQuery(brandId);
+export default function ProductModalScreen({ route }) {
+  const { title, bestSellerId, products } = route.params;
   return (
     <View className="px-2 mt-10 space-y-2">
       <View className="flex flex-row justify-between py-3 px-3 bg-white">
@@ -14,7 +12,7 @@ export default function ProductByBrand({ route }) {
           <Text>
             <Icon name="arrow-left" size={25} color="#000" />
           </Text>
-          <Text>{brandName}</Text>
+          <Text>{title}</Text>
         </View>
         <View>
           <Icon name="search" size={25} color="#000" />

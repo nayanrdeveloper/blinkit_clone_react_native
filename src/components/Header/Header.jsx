@@ -1,9 +1,11 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { useNavigation } from "@react-navigation/native";
 import SearchBar from "./SearchBar";
 
 export default function Header() {
+  const navigation = useNavigation();
   return (
     <View>
       <View>
@@ -13,11 +15,15 @@ export default function Header() {
             <Text className="text-2xl font-semibold">15 minutes</Text>
             <Text>XP55+, Spice Garden Layout</Text>
           </View>
-          <View>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("UserScreen", {});
+            }}
+          >
             <Text>
               <Icon name="user" size={30} color="#000" />
             </Text>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
       <SearchBar />

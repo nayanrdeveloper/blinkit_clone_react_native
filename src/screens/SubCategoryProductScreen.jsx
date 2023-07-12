@@ -2,14 +2,17 @@ import { View, Text, Image, ScrollView } from "react-native";
 import React from "react";
 import SubCategoryProductCard from "../components/Product/SubCategoryProductCard";
 import { useGetSubCategoriesByCategoryQuery } from "../api/subCategoryApi";
-import { useGetProductBySubCategoryQuery } from "../api/productApi";
+import {
+  useGetProductByCategoryQuery,
+  useGetProductBySubCategoryQuery,
+} from "../api/productApi";
 
 export default function SubCategoryProductScreen({ route }) {
   const { categoryId } = route.params;
   const { data: subCategories, isLoading: isCategoryLoading } =
     useGetSubCategoriesByCategoryQuery("64a966e7b9b0a074b61c90a8");
   const { data: products, isLoading: isProductLoading } =
-    useGetProductBySubCategoryQuery("64a966e7b9b0a074b61c90a8");
+    useGetProductByCategoryQuery(categoryId);
   return (
     <View className="px-3 bg-white mt-10 flex flex-row space-x-0 space-y-2">
       <View className="space-y-2 border-r border-gray-100 w-16 mt-2">
