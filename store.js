@@ -5,9 +5,11 @@ import { categoryApi } from "./src/api/categoryApi";
 import { featureApi } from "./src/api/featureApi";
 import { productApi } from "./src/api/productApi";
 import { subCategoryApi } from "./src/api/subCategoryApi";
+import cartSlice from "./src/features/cartSlice";
 
 const store = configureStore({
   reducer: {
+    cart: cartSlice,
     [sellerApi.reducerPath]: sellerApi.reducer,
     [categoryApi.reducerPath]: categoryApi.reducer,
     [featureApi.reducerPath]: featureApi.reducer,

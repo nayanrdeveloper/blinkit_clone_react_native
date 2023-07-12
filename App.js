@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Provider } from "react-redux";
 import AppNavigation from "./src/navigations";
 import store from "./store";
+import CartToast from "./src/components/CartToast/CartToast";
 
 const Stack = createNativeStackNavigator();
 
@@ -12,6 +13,7 @@ export default function App() {
     <NavigationContainer>
       <Provider store={store}>
         <AppNavigation />
+        <CartToast />
       </Provider>
     </NavigationContainer>
   );
