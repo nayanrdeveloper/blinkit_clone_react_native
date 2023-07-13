@@ -1,12 +1,21 @@
 import { View, Text, Image, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/Fontisto";
 import Swiper from "react-native-swiper";
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 
 export default function ProductDetailsScreen({ route }) {
   const { product } = route.params;
+  const navigation = useNavigation();
   return (
     <View className="py-2 px-4">
+      <View className="flex flex-row items-center space-x-3">
+        <Text onPress={() => navigation.goBack()}>
+          <FontAwesomeIcon name="arrow-left" size={25} color="#000" />
+        </Text>
+        <Text>Go back</Text>
+      </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Swiper
           showsButtons

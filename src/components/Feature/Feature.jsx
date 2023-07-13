@@ -1,10 +1,12 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import React from "react";
 import { useGetFeaturesQuery } from "../../api/featureApi";
 import ProductCard from "../Product/ProductCard";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Feature() {
   const { data: features, isLoading } = useGetFeaturesQuery();
+  const navigation = useNavigation();
   return (
     <View className="space-y-4">
       {features &&
@@ -13,7 +15,16 @@ export default function Feature() {
             <View key={feature._id} className="space-y-2">
               <View className="flex justify-between flex-row items-center">
                 <Text className="text-xl font-semibold">{feature.title}</Text>
-                <Text className="text-[#539645] font-semibold">See All</Text>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate("AllFeatureProduct", {
+                      products: feature.products,
+                      title: feature.title,
+                    });
+                  }}
+                >
+                  <Text className="text-[#539645] font-semibold">See All</Text>
+                </TouchableOpacity>
               </View>
               <ScrollView
                 horizontal

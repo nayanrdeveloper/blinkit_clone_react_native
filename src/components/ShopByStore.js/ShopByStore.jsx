@@ -6,7 +6,7 @@ export default function ShopByStore() {
   return (
     <View className="space-y-2">
       <Text className="text-xl font-semibold">ShopByStore</Text>
-      <ScrollView horizontal className="space-x-2">
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} className="space-x-2">
         {storeByData.map((store) => {
           return (
             <View key={store.id}>

@@ -1,10 +1,16 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import Icon from "react-native-vector-icons/Fontisto";
+import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
+import { addProduct } from "../../features/cartSlice";
 
 export default function ProductCard({ product }) {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const handleAddToCart = (product, quantity) => {
+    dispatch(addProduct({ product, quantity }));
+  };
   return (
     <View key={product._id} className="space-y-2">
       <TouchableOpacity
@@ -36,9 +42,12 @@ export default function ProductCard({ product }) {
           <Text>₹ 589.89</Text>
           <Text className="line-through text-[#7D8288]">580</Text>
         </View>
-        <View className="border border-[#539645] rounded-md px-2 py-1">
+        <TouchableOpacity
+          onPress={() => handleAddToCart(product, 1)}
+          className="border border-[#539645] rounded-md px-2 py-1"
+        >
           <Text className="text-[#539645] font-semibold">Add</Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

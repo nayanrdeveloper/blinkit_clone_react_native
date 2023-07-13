@@ -12,9 +12,11 @@ import BrandFocus from "../components/BrandInFocus/BrandFocus";
 import CartToast from "../components/CartToast/CartToast";
 
 export default function HomeScreen({ navigation }) {
-  
   return (
-    <ScrollView className="py-2 px-3 bg-white mt-10">
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      className="py-2 px-3 bg-white mt-10"
+    >
       <Header />
       <BestSeller />
       <Category />

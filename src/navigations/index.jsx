@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
+import AllFeatureProduct from "../screens/AllFeatureProduct";
 import CartScreen from "../screens/CartScreen";
 
 import HomeScreen from "../screens/HomeScreen";
@@ -31,6 +32,10 @@ export default function index() {
           component={SubCategoryProductScreen}
         />
         <RootStack.Screen name="ProductsByBrand" component={ProductByBrand} />
+        <RootStack.Screen
+          name="AllFeatureProduct"
+          component={AllFeatureProduct}
+        />
         <RootStack.Screen name="UserScreen" component={UserScreen} />
         <RootStack.Screen name="CartScreen" component={CartScreen} />
       </RootStack.Group>

@@ -1,11 +1,12 @@
 import { View, Text, ScrollView } from "react-native";
-import React from "react";
-import { useNavigation } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import React from "react";
+import { useNavigation } from '@react-navigation/native';
+
 import LargeProductCard from "../components/Product/LargeProductCard";
 
-export default function ProductModalScreen({ route }) {
-  const { title, bestSellerId, products } = route.params;
+export default function AllFeatureProduct({ route }) {
+  const { products, title } = route.params;
   const navigation = useNavigation();
   return (
     <View className="px-2 mt-10 space-y-2">

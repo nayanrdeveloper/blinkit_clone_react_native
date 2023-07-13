@@ -1,6 +1,8 @@
 import { View, Text, Image, ScrollView } from "react-native";
 import React from "react";
 import SubCategoryProductCard from "../components/Product/SubCategoryProductCard";
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
+import { useNavigation } from "@react-navigation/native";
 import { useGetSubCategoriesByCategoryQuery } from "../api/subCategoryApi";
 import {
   useGetProductByCategoryQuery,
@@ -9,6 +11,7 @@ import {
 
 export default function SubCategoryProductScreen({ route }) {
   const { categoryId } = route.params;
+  const navigation = useNavigation();
   const { data: subCategories, isLoading: isCategoryLoading } =
     useGetSubCategoriesByCategoryQuery("64a966e7b9b0a074b61c90a8");
   const { data: products, isLoading: isProductLoading } =
@@ -34,7 +37,13 @@ export default function SubCategoryProductScreen({ route }) {
             })}
         </ScrollView>
       </View>
-      <ScrollView className="bg-[#F5F6FB]">
+      <ScrollView showsVerticalScrollIndicator={false} className="bg-[#F5F6FB]">
+        <View className="flex flex-row items-center space-x-3 ml-5 mt-3">
+          <Text onPress={() => navigation.goBack()}>
+            <FontAwesomeIcon name="arrow-left" size={25} color="#000" />
+          </Text>
+          <Text>Go back</Text>
+        </View>
         <View className="flex flex-row flex-wrap gap-2 mx-2 mt-1">
           {products &&
             products.map((product) => {

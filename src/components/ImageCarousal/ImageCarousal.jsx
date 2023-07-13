@@ -4,7 +4,7 @@ import React from "react";
 
 export default function ImageCarousal() {
   return (
-    <ScrollView horizontal className="">
+    <ScrollView horizontal showsHorizontalScrollIndicator={false} className="">
       {imageCarousalData.map((imageCarousal) => {
         return (
           <View key={imageCarousal.id} className="p-2">

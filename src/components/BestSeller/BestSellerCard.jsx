@@ -22,19 +22,19 @@ export default function BestSellerCard({ bestSeller }) {
               <Image
                 source={{ uri: product.images[0] }}
                 alt=""
-                className="w-14 h-14"
+                className="w-14 h-14 rounded"
               />
             </View>
           );
         })}
         <View className="w-14 h-14 items-center justify-center bg-white">
-          <Text className="text-[#BCBFD2] text-xl font-semibold">
+          <Text className="text-[#BCBFD2] text-xl font-semibold rounded">
             +{bestSeller.products.length - 3}
           </Text>
         </View>
       </View>
       <Text>{bestSeller.title}</Text>
-      <Text>{bestSeller.products.length} Products</Text>
+      <Text className="text-[#696973]">{bestSeller.products.length} Products</Text>
       <View className="px-2 py-2 border-2 border-[#F3F3F3] rounded-md mt-2">
         <Text className="text-[#539645] text-center">See All</Text>
       </View>
