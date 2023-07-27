@@ -12,6 +12,4 @@ export const sellerApi = createApi({
   }),
 });
 
-export const {
-  useGetSellersQuery,
-} = sellerApi;
+export const { useGetSellersQuery } = sellerApi;
